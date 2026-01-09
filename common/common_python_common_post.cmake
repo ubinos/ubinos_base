@@ -1,0 +1,58 @@
+message(STATUS "")
+message(STATUS "")
+
+message(STATUS "UBI_CONFIG_WIFI_SSID:               ${UBI_CONFIG_WIFI_SSID}")
+message(STATUS "UBI_CONFIG_WIFI_PW:                 ${UBI_CONFIG_WIFI_PW}")
+message(STATUS "UBI_CONFIG_SERVER_ADDR:             ${UBI_CONFIG_SERVER_ADDR}")
+
+message(STATUS "PROJECT_TARGET_NAME:                ${PROJECT_TARGET_NAME}")
+message(STATUS "PROJECT_BASE_DIR:                   ${PROJECT_BASE_DIR}")
+message(STATUS "PROJECT_LIB_DIR:                    ${PROJECT_LIB_DIR}")
+message(STATUS "PROJECT_BSP_DIR:                    ${PROJECT_BSP_DIR}")
+message(STATUS "PROJECT_SRC_DIR:                    ${PROJECT_SRC_DIR}")
+
+message(STATUS "PROJECT_PYTHON_INTERPRETER          ${PROJECT_PYTHON_INTERPRETER}")
+message(STATUS "PROJECT_MAIN_APP:                   ${PROJECT_MAIN_APP}")
+message(STATUS "PROJECT_MAIN_APP_OPTION:            ${PROJECT_MAIN_APP_OPTION}")
+message(STATUS "PROJECT_MAIN_APP_DIR:               ${PROJECT_MAIN_APP_DIR}")
+
+message(STATUS "PROJECT_REMOTE_HOST:                ${PROJECT_REMOTE_HOST}")
+message(STATUS "PROJECT_REMOTE_USER:                ${PROJECT_REMOTE_USER}")
+message(STATUS "PROJECT_REMOTE_VENV:                ${PROJECT_REMOTE_VENV}")
+message(STATUS "PROJECT_REMOTE_SOURCE_BASE:         ${PROJECT_REMOTE_SOURCE_BASE}")
+message(STATUS "PROJECT_REMOTE_DESTINATION_BASE:    ${PROJECT_REMOTE_DESTINATION_BASE}")
+message(STATUS "PROJECT_REMOTE_SYNC_SRC_DIR_LIST:   ${PROJECT_REMOTE_SYNC_SRC_DIR_LIST}")
+message(STATUS "PROJECT_REMOTE_SYNC_BIN_DIR_LIST:   ${PROJECT_REMOTE_SYNC_SRC_DIR_LIST}")
+
+message(STATUS "")
+
+##
+add_custom_target(build
+    WORKING_DIRECTORY ${PROJECT_MAIN_APP_DIR}
+)
+
+add_custom_target(cleand
+    WORKING_DIRECTORY ${PROJECT_MAIN_APP_DIR}
+)
+
+add_custom_target(rebuild
+    WORKING_DIRECTORY ${PROJECT_MAIN_APP_DIR}
+)
+
+add_custom_target(load
+    WORKING_DIRECTORY ${PROJECT_MAIN_APP_DIR}
+)
+
+add_custom_target(reset
+    WORKING_DIRECTORY ${PROJECT_MAIN_APP_DIR}
+)
+
+add_custom_target(dserver
+    WORKING_DIRECTORY ${PROJECT_MAIN_APP_DIR}
+)
+
+add_custom_target(xdserver
+    WORKING_DIRECTORY ${PROJECT_MAIN_APP_DIR}
+)
+
+message(STATUS "")
