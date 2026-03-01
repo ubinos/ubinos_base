@@ -43,33 +43,15 @@ execute_process(
 )
 execute_process(
     COMMAND ubitool json -w 
-                         -k "configurations[?name==\"local app debug\"].cwd | [0]"
+                         -k "configurations[?name==\"lcad - local app debug\"].cwd | [0]"
                          -v "\${workspaceFolder}/${_rel_path}"
                          "${PROJECT_BASE_DIR}/.vscode/launch.json"
 )
 execute_process(
     COMMAND ubitool json -w 
-                         -k "configurations[?name==\"local app debug\"].program | [0]"
+                         -k "configurations[?name==\"lcad - local app debug\"].program | [0]"
                          -v "\${workspaceFolder}/${_rel_path}/app"
                          "${PROJECT_BASE_DIR}/.vscode/launch.json"
-)
-execute_process(
-    COMMAND ubitool json -w 
-                         -k "tasks[?label==\"target app reset\"].options.cwd | [0]"
-                         -v "\${workspaceFolder}/${_rel_path}"
-                         "${PROJECT_BASE_DIR}/.vscode/tasks.json"
-)
-execute_process(
-    COMMAND ubitool json -w 
-                         -k "tasks[?label==\"target app build\"].options.cwd | [0]"
-                         -v "\${workspaceFolder}/${_rel_path}"
-                         "${PROJECT_BASE_DIR}/.vscode/tasks.json"
-)
-execute_process(
-    COMMAND ubitool json -w 
-                         -k "tasks[?label==\"target app load\"].options.cwd | [0]"
-                         -v "\${workspaceFolder}/${_rel_path}"
-                         "${PROJECT_BASE_DIR}/.vscode/tasks.json"
 )
 
 ##
