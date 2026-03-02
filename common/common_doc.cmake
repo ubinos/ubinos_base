@@ -25,7 +25,9 @@ add_custom_target(rebuild
 )
 
 ##
-set(_doc_file_html "${CMAKE_BINARY_DIR}/html/index.html")
+if(NOT _doc_file_html)
+    set(_doc_file_html "${CMAKE_BINARY_DIR}/html/index.html")
+endif()
 if(NOT _doc_file_latexpdf)
     set(_doc_file_latexpdf "${CMAKE_BINARY_DIR}/latex/sphinx.pdf")
 endif()

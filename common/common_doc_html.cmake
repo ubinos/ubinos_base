@@ -24,7 +24,9 @@ add_custom_target(rebuild
 )
 
 ##
-set(_doc_file_html "${CMAKE_BINARY_DIR}/html/index.html")
+if(NOT _doc_file_html)
+    set(_doc_file_html "${CMAKE_BINARY_DIR}/html/index.html")
+endif()
 
 if(WIN32)
     set(_open_cmd_html cmd /c start "${_doc_file_html}")
