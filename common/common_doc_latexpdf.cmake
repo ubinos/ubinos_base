@@ -29,7 +29,7 @@ if(NOT _doc_file_latexpdf)
 endif()
 
 if(WIN32)
-    set(_open_cmd_latexpdf start "" "${_doc_file_latexpdf}")
+    set(_open_cmd_latexpdf cmd /c start "${_doc_file_latexpdf}")
 elseif(APPLE)
     set(_open_cmd_latexpdf open "${_doc_file_latexpdf}")
 else()
