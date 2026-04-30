@@ -10,6 +10,7 @@ add_custom_target(rsync
 add_custom_target(build
     COMMAND sphinx-build -M html "${PROJECT_DOC_DIR}" .
     COMMAND sphinx-build -M latexpdf "${PROJECT_DOC_DIR}" .
+    COMMAND sphinx-build -b docx "${PROJECT_DOC_DIR}" .
     VERBATIM
 )
 
@@ -31,20 +32,27 @@ endif()
 if(NOT _doc_file_latexpdf)
     set(_doc_file_latexpdf "${CMAKE_BINARY_DIR}/latex/sphinx.pdf")
 endif()
+if(NOT _doc_file_docx)
+    set(_doc_file_docx "${CMAKE_BINARY_DIR}/Logbook.docx")
+endif()
 
 if(WIN32)
     set(_open_cmd_html cmd /c start "${_doc_file_html}")
     set(_open_cmd_latexpdf cmd /c start "${_doc_file_latexpdf}")
+    set(_open_cmd_docx cmd /c start "${_doc_file_docx}")
 elseif(APPLE)
     set(_open_cmd_html open "${_doc_file_html}")
     set(_open_cmd_latexpdf open "${_doc_file_latexpdf}")
+    set(_open_cmd_docx open "${_doc_file_docx}")
 else()
     set(_open_cmd_html xdg-open "${_doc_file_html}")
     set(_open_cmd_latexpdf xdg-open "${_doc_file_latexpdf}")
+    set(_open_cmd_docx xdg-open "${_doc_file_docx}")
 endif()
 
 add_custom_target(run
     COMMAND ${_open_cmd_html}
     COMMAND ${_open_cmd_latexpdf}
+    COMMAND ${_open_cmd_docx}
     VERBATIM
 )
