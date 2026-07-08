@@ -1,4 +1,4 @@
-include("${CMAKE_CURRENT_LIST_DIR}/common_python_common_post.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/common_shell_common_post.cmake")
 
 ##
 set(_remote_login_cmd ssh -CYt -p "${PROJECT_REMOTE_PORT}" "${PROJECT_REMOTE_USER}@${PROJECT_REMOTE_ADDR}")
@@ -23,7 +23,7 @@ add_custom_target(rsync
 set(_target_cmd)
 list(APPEND _target_cmd
     ${_remote_login_cmd} 
-    "${_remote_venv_cmd} && cd \"${PROJECT_REMOTE_MAIN_APP_DIR}\" && ${PROJECT_PYTHON_INTERPRETER} -u ./${PROJECT_MAIN_APP} ${PROJECT_MAIN_APP_OPTION}"
+    "${_remote_venv_cmd} && cd \"${PROJECT_REMOTE_MAIN_APP_DIR}\" && ${PROJECT_SHELL_INTERPRETER} ./${PROJECT_MAIN_APP} ${PROJECT_MAIN_APP_OPTION}"
 )
 message(STATUS "run command: ${_target_cmd}")
 add_custom_target(run
@@ -36,7 +36,7 @@ add_custom_target(run
 set(_target_cmd)
 list(APPEND _target_cmd
     ${_remote_login_cmd} 
-    "${_remote_venv_cmd} && cd \"${PROJECT_REMOTE_MAIN_APP_DIR}\" && ${PROJECT_PYTHON_INTERPRETER} -u ./${PROJECT_MAIN_APP} --debug ${PROJECT_MAIN_APP_OPTION}"
+    "${_remote_venv_cmd} && cd \"${PROJECT_REMOTE_MAIN_APP_DIR}\" && ${PROJECT_SHELL_INTERPRETER} -x ./${PROJECT_MAIN_APP} ${PROJECT_MAIN_APP_OPTION}"
 )
 message(STATUS "debug command: ${_target_cmd}")
 add_custom_target(debug

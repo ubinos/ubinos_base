@@ -11,7 +11,7 @@ message(STATUS "PROJECT_LIB_DIR:                    ${PROJECT_LIB_DIR}")
 message(STATUS "PROJECT_BSP_DIR:                    ${PROJECT_BSP_DIR}")
 message(STATUS "PROJECT_SRC_DIR:                    ${PROJECT_SRC_DIR}")
 
-message(STATUS "PROJECT_PYTHON_INTERPRETER          ${PROJECT_PYTHON_INTERPRETER}")
+message(STATUS "PROJECT_SHELL_INTERPRETER           ${PROJECT_SHELL_INTERPRETER}")
 message(STATUS "PROJECT_MAIN_APP:                   ${PROJECT_MAIN_APP}")
 message(STATUS "PROJECT_MAIN_APP_OPTION:            ${PROJECT_MAIN_APP_OPTION}")
 message(STATUS "PROJECT_MAIN_APP_DIR:               ${PROJECT_MAIN_APP_DIR}")
@@ -39,8 +39,7 @@ add_custom_target(cleand
 )
 
 add_custom_target(rebuild
-    COMMAND ${CMAKE_COMMAND} --build . --target build
-    VERBATIM
+    WORKING_DIRECTORY ${PROJECT_MAIN_APP_DIR}
 )
 
 add_custom_target(load

@@ -39,19 +39,22 @@ target_include_directories(${PROJECT_TARGET_NAME} PRIVATE
 )
 
 ##
-set(PROJECT_REMOTE_HOST "${UBI_CONFIG_HOST_01}")
-set(PROJECT_REMOTE_USER "${UBI_CONFIG_USER_01}")
+set(PROJECT_REMOTE_ADDR "${UBI_CONFIG_HOST_01_ADDR}")
+set(PROJECT_REMOTE_PORT "${UBI_CONFIG_HOST_01_PORT}")
+set(PROJECT_REMOTE_USER "${UBI_CONFIG_HOST_01_USER}")
+set(PROJECT_REMOTE_BASE_DIR "${UBI_CONFIG_HOST_01_BASE_DIR}")
+set(PROJECT_REMOTE_VENV "${PROJECT_REMOTE_BASE_DIR}/venv")
+set(PROJECT_REMOTE_SOURCE_BASE "${PROJECT_BASE_DIR}")
+set(PROJECT_REMOTE_DESTINATION_BASE "${PROJECT_REMOTE_BASE_DIR}")
+set(PROJECT_REMOTE_MAIN_APP_DIR "${PROJECT_REMOTE_BASE_DIR}/build/helloworld_c_on_host_01")
 
-set(PROJECT_REMOTE_VENV "${PROJECT_BASE_DIR}/venv")
-set(PROJECT_REMOTE_SOURCE_BASE "${PROJECT_LIB_DIR}/ubinos_base")
-set(PROJECT_REMOTE_DESTINATION_BASE "${PROJECT_LIB_DIR}/ubinos_base")
 set(PROJECT_REMOTE_SYNC_SRC_DIR_LIST 
-    "app/helloworld_c" 
-    "app/helloworld_c_on_host_01" 
+    "lib/ubinos_base/app/helloworld_c" 
+    "lib/ubinos_base/app/helloworld_c_on_host_01" 
 )
-file(RELATIVE_PATH _rel_dir "${PROJECT_REMOTE_SOURCE_BASE}" "${PROJECT_MAIN_APP_DIR}")
+
 set(PROJECT_REMOTE_SYNC_BIN_DIR_LIST 
-    "${_rel_dir}"
+    "build/helloworld_c_on_host_01"
 )
 
 ##
